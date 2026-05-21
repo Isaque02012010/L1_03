@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salarial</title>
+</head>
+<body>
+ 
+    <h1>Reajuste Salarial</h1>
+ 
+    <form action="/reajuste" method="post">
+ 
+        <label for="salario">Digite o salário:</label><br>
+ 
+        <input
+            type="text"
+            name="salario"
+            id="salario"
+            value="<%= valores.salario %>"
+        ><br><br>
+ 
+        <button type="submit">Calcular</button>
+ 
+    </form>
+ 
+    <hr>
+ 
+    <% if(retorno){ %>
+ 
+        <h2>Resultado</h2>
+ 
+        <p>Salário antes do reajuste: R$ <%= retorno.salario %></p>
+ 
+        <p>Percentual aplicado: <%= retorno.percentual %>%</p>
+ 
+        <p>Valor do aumento: R$ <%= retorno.aumento %></p>
+ 
+        <p>Novo salário: R$ <%= retorno.novoSalario %></p>
+ 
+    <% } else { %>
+ 
+        <h2>Nenhum cálculo realizado.</h2>
+ 
+    <% } %>
+ 
+</body>
+</html>
+ 
