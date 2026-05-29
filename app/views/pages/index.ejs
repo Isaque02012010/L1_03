@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reajuste Salarial</title>
+    <style>
+        .alerta-erro {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
  
     <h1>Reajuste Salarial</h1>
  
+    <% if (typeof erros !== 'undefined' && erros && erros.length > 0) { %>
+        <div class="alerta-erro">
+            <strong>Por favor, corrija os seguintes erros:</strong>
+            <ul>
+                <% erros.forEach(function(erro) { %>
+                    <li><%= erro.msg %></li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } %>
+
     <form action="/reajuste" method="post">
  
         <label for="salario">Digite o salário:</label><br>
@@ -46,4 +67,3 @@
  
 </body>
 </html>
- 
